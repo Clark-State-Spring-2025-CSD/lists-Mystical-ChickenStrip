@@ -18,3 +18,42 @@
 #Player two's highest number is 8 at index 1
 #Player one's lowest number is 1 at index 4
 #Player two's lowest number is 1 at index 5
+
+import random
+
+player_one = [random.randint(1, 50) for _ in range(10)]
+player_two = [random.randint(1, 50) for _ in range(10)]
+
+player_one_wins = 0
+player_two_wins = 0
+
+for i in range(10):
+    if player_one[i] > player_two[i]:
+        player_one_wins += 1
+    elif player_one[i] < player_two[i]:
+        player_two_wins += 1
+
+if 'player_one' in locals():
+    highest_one = max(player_one)
+    highest_one_index = player_one.index(highest_one)
+    lowest_one = min(player_one)
+    lowest_one_index = player_one.index(lowest_one)
+else:
+    raise NameError("player_one is not defined")
+
+if 'player_two' in locals():
+    highest_two = max(player_two)
+    highest_two_index = player_two.index(highest_two)
+    lowest_two = min(player_two)
+    lowest_two_index = player_two.index(lowest_two)
+else:
+    raise NameError("player_two is not defined")
+
+print(f"Player One = {player_one}")
+print(f"Player Two = {player_two}")
+print(f"Player one won {player_one_wins} times")
+print(f"Player two won {player_two_wins} times")
+print(f"Player one's highest number is {highest_one} at index {highest_one_index}")
+print(f"Player two's highest number is {highest_two} at index {highest_two_index}")
+print(f"Player one's lowest number is {lowest_one} at index {lowest_one_index}")
+print(f"Player two's lowest number is {lowest_two} at index {lowest_two_index}")
